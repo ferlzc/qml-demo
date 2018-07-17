@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>images/battery-empty.svg</file>
+        <file>images/battery-full.svg</file>
+        <file>images/battery-half.svg</file>
+        <file>images/battery-quarter.svg</file>
+        <file>images/battery-three-quarters.svg</file>
+        <file>images/camera.svg</file>
+        <file>images/cog.svg</file>
+        <file>images/dna.svg</file>
+        <file>images/folder.svg</file>
+        <file>images/icons.qrc</file>
+        <file>images/play.svg</file>
+        <file>images/toggle-off.svg</file>
+        <file>images/toggle-on.svg</file>
+        <file>main.cpp</file>
+        <file>Cousine-Regular.ttf</file>
+        <file>DejaVuSans.ttf</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/camera.svg</file>
+        <file>images/battery-empty.svg</file>
+        <file>images/battery-full.svg</file>
+        <file>images/battery-half.svg</file>
+        <file>images/battery-quarter.svg</file>
+        <file>images/battery-three-quarters.svg</file>
+        <file>images/play.svg</file>
+        <file>images/toggle-off.svg</file>
+        <file>images/toggle-on.svg</file>
+    </qresource>
+</RCC>
