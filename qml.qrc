@@ -17,5 +17,6 @@
         <file>main.cpp</file>
         <file>Cousine-Regular.ttf</file>
         <file>DejaVuSans.ttf</file>
+        <file>Particles.qml</file>
     </qresource>
 </RCC>

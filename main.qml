@@ -1,39 +1,52 @@
 import QtQuick 2.8
 import QtQuick.Controls 2.0
+import QtQuick.Controls 2.0 as QuickControls
 import QtQuick.Window 2.0
 import QtQuick.Controls.Material 2.0
 import QtQuick.Layouts 1.3
+import QtQuick.Extras 1.4
+import QtQuick.Controls.Styles 1.4
+import FPS 1.0
 
 ApplicationWindow {
     id: app
-    width: 1900
+    width: 1920
     height: 1080
     visible: true
-    visibility: Window.FullScreen
+    //visibility: Window.FullScreen
     Material.theme: Material.Dark
     Material.accent: Material.Teal
     Material.foreground: Material.Blue
 
-    Label {
-        id: label
-        x: parent.width/2 -50
-        y: 36
-        text: qsTr("Demo")
-        font.pointSize: 36
+    /*
+    FPSText{
+        id: fps_text
+        x:0
+        y: 0;
+        width: 200
+        height: 100
+        Text {
+            anchors.centerIn: parent
+            text: fps_text.fps.toFixed(2)
+            anchors.verticalCenterOffset: -526
+            anchors.horizontalCenterOffset: -777
+        }
     }
+    */
 
     StackLayout {
         id: stackLayout
 
         width: parent.width
+        height: 1080
         currentIndex: bar.currentIndex
         Item {
             id: inter
 
             Switch {
                 id: switch1
-                x: 1336
-                y: 382
+                x: 1520
+                y: 306
                 width: 154
                 height: 117
                 text: qsTr("Switch")
@@ -53,8 +66,8 @@ ApplicationWindow {
 
             RadioButton {
                 id: radioButton
-                x: 1333
-                y: 548
+                x: 1517
+                y: 581
                 text: qsTr("Radio Button")
                 scale: 1.25
 
@@ -62,8 +75,8 @@ ApplicationWindow {
 
             RadioButton {
                 id: radioButton1
-                x: 1620
-                y: 548
+                x: 1517
+                y: 691
                 text: qsTr("Radio Button")
                 scale:1.25
             }
@@ -82,58 +95,65 @@ ApplicationWindow {
 
             Switch {
                 id: switch2
-                x: 1609
-                y: 421
+                x: 1525
+                y: 445
                 width: 149
-                height: 56
+                height: 86
                 text: qsTr("Switch")
                 scale: 1.25
             }
 
-
             Row {
                 id: row
-                x: 314
+                x: 164
                 y: 414
-                width: 306
+                width: 653
                 height: 605
 
-                Tumbler {
+                QuickControls.Tumbler {
                     id: tumbler2
                     width: 120
                     height: 269
                     anchors.left: parent.left
-                    anchors.leftMargin: -60
-                    model: 10
+                    anchors.leftMargin: 0
                     scale:2
+                    model: 10
                 }
 
-                Tumbler {
+                QuickControls.Tumbler {
                     id: tumbler1
                     width: 120
                     height: 269
                     anchors.left: parent.left
-                    anchors.leftMargin: 60
-                    model: 10
+                    anchors.leftMargin: 120
                     scale: 2
+                    model: 10
                 }
 
-                Tumbler {
+                QuickControls.Tumbler {
                     id: tumbler
                     width: 120
                     height: 269
                     anchors.left: parent.left
-                    anchors.leftMargin: 180
-                    model: 10
+                    anchors.leftMargin: 240
                     scale: 2
+                    model: 10
+                }
+
+                QuickControls.Tumbler {
+                    id: tumbler3
+                    width: 120
+                    height: 269
+                    anchors.left: parent.left
+                    anchors.leftMargin: 360
+                    scale: 2
+                    model: 10
                 }
             }
 
-
-
             Row {
                 id: row1
-                x: 722
+                x: 794
                 y: 456
                 width: 478
                 height: 86
@@ -142,24 +162,30 @@ ApplicationWindow {
                 BusyIndicator {
                     id: busyIndicator2
                     anchors.right: parent.right
-                    anchors.rightMargin: 170
-                    scale:1.5
+                    anchors.rightMargin: 300
+                    scale:1
                 }
 
                 BusyIndicator {
                     id: busyIndicator1
                     anchors.right: parent.right
-                    anchors.rightMargin: 328
-                    scale:1.5
+                    anchors.rightMargin: 200
+                    scale:1
                 }
 
                 BusyIndicator {
                     id: busyIndicator
                     anchors.right: parent.right
-                    anchors.rightMargin: 0
-                    scale:1.5
+                    anchors.rightMargin: 100
+                    scale:1
                 }
 
+                BusyIndicator {
+                    id: busyIndicator3
+                    anchors.right: parent.right
+                    anchors.rightMargin: 0
+                    scale:1
+                }
 
             }
         }
@@ -169,16 +195,14 @@ ApplicationWindow {
             Rectangle {
                 id: rectangle
                 x: 0
-                y: 180
-                width: app.width
-                height: 800
+                y: 162
+                width: 1920
+                height: 918
                 color: "#ffffff"
                 MultiPointTouchArea {
-                    maximumTouchPoints: 2
-                    anchors.topMargin: parent
-                    anchors.bottomMargin: parent
-                    anchors.rightMargin: parent
+                    anchors.topMargin: 82
                     anchors.fill: parent
+                    maximumTouchPoints: 2
                     touchPoints: [
                         TouchPoint { id: point1},
                         TouchPoint { id: point2}
@@ -200,28 +224,54 @@ ApplicationWindow {
                 y: point2.y
             }
         }
-        Item {
-            id: camera
 
-            Image {
-                id: image
-                x: 632
-                y: 540
-                width: 318
-                height: 210
-                fillMode: Image.PreserveAspectFit
-                source: "qrc:images/camera.svg"
+        Item {
+            id: particles
+
+            Particles {
+                x: 0
+                y: 86
+                width: 1920
+                height: 984
             }
 
-            Image {
-                id: image1
-                x: 1014
-                y: 457
-                width: 400
-                height: 400
-                scale: 0.5
-                fillMode: Image.PreserveAspectFit
-                source: "qrc:images/dna.svg"
+        }
+
+        Item {
+            CircularGauge {
+                id: gauge
+                x: 547
+                y: 191
+                width: 825
+                height: 735
+                style: CircularGaugeStyle {
+                    needle: Rectangle {
+                        y: outerRadius * 0.15
+                        implicitWidth: outerRadius * 0.03
+                        implicitHeight: outerRadius * 0.9
+                        antialiasing: true
+                        color: Qt.rgba(0.66, 0.3, 0, 1)
+                    }
+                }
+                value: 5
+                Behavior on value {
+                    NumberAnimation {
+                        duration: 1000
+                    }
+                }
+            }
+            Timer {
+                interval: 900
+                running: true
+                repeat: true
+                onTriggered: {
+                    if (gauge.value === 100)
+                    {
+                     gauge.value = 0;
+                    } else {
+                    gauge.value += 10;
+                    }
+                }
             }
         }
 
@@ -230,15 +280,15 @@ ApplicationWindow {
 
             Column {
                 id: column
-                x: 606
-                y: 401
+                x: 586
+                y: 293
                 width: 759
                 height: 400
                 spacing: 50
 
                 Label {
                     id: label1
-                    text: qsTr("Esquema de Cores")
+                    text: qsTr("Color Theme")
                     anchors.top: parent.top
                     anchors.topMargin: 30
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -263,19 +313,18 @@ ApplicationWindow {
                     anchors.topMargin: 30
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
-
             }
         }
-
     }
-
 
     TabBar {
         id: bar
         x: 0
-        y: 176
+        y: 38
         width: parent.width
         height: 38
+        currentIndex: 0
+        font.pointSize: 22
         TabButton {
             text: qsTr("Interface")
         }
@@ -283,7 +332,10 @@ ApplicationWindow {
             text: qsTr("Touch")
         }
         TabButton {
-            text: qsTr("Camera")
+            text: qsTr("Particles")
+        }
+        TabButton {
+            text: qsTr("Gauge")
         }
         TabButton {
             text: qsTr("Configs")
@@ -308,5 +360,9 @@ ApplicationWindow {
         }
     }
 
-
 }
+
+/*##^## Designer {
+    D{i:23;anchors_height:800;anchors_width:1920;anchors_x:0;anchors_y:250}
+}
+ ##^##*/
